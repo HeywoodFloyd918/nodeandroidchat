@@ -12,7 +12,7 @@ server.listen(port);
 var wss = new WebSocketServer({server: server});
 wss.on('connection', function(ws) {
     ws.on('message', function(message) {
-        ws.send(parseInt(message)+1, function() {  });
+        ws.send(String(parseInt(message)+1), function() {  });
     });
 
     ws.on('close', function() {
