@@ -1,3 +1,4 @@
+let Server = require("./Server");
 var WebSocketServer = require('ws').Server
   , http = require('http')
   , express = require('express')
@@ -10,12 +11,6 @@ var server = http.createServer(app);
 server.listen(port);
 
 var wss = new WebSocketServer({server: server});
-wss.on('connection', function(ws) {
-    ws.on('message', function(message) {
-        ws.send(String(parseInt(message)+1), function() {  });
-    });
 
-    ws.on('close', function() {
-        console.log('websocket connection close');
-    });
-});
+new Server(wss);
+
