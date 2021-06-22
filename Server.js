@@ -1,3 +1,4 @@
+let Client = require("./Client");
 class Server{
     constructor(websocketserver){
         this.websocketserver = websocketserver;

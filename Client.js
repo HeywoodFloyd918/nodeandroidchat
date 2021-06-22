@@ -10,3 +10,5 @@ class Client{
         this.websocket.send(message);
     }
 }
+
+module.exports = Client;
