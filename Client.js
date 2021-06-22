@@ -7,7 +7,7 @@ class Client{
         })
     }
     reciveMessage(message){
-        this.websocket.send(message);
+        this.websocket.send(message,()=>{});
     }
 }
 
