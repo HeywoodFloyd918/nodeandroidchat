@@ -2,7 +2,7 @@ class Client{
     constructor(websocket, websocketserver){
         this.websocket = websocket;
         this.websocketserver = websocketserver;
-        this.websocket.on("message",function(message){
+        this.websocket.on("message",(message)=>{
             this.websocketserver.handleMessage(message);
         })
     }
