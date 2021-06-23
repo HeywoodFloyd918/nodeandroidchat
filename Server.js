@@ -4,15 +4,15 @@ class Server{
         this.websocketserver = websocketserver;
         this.clients = [];
         websocketserver.on('connection', (ws)=>{
-            this.clients.push(new Client(ws,this));
+            this.clients.push(new Client(ws,this,this.clients.length));
             // ws.on('close', function() {
             //     console.log('websocket connection close');
             // });
         });
     }
-    handleMessage(message){
+    handleMessage(message,id){
         this.clients.forEach(element => {
-            element.reciveMessage(message);
+            element.reciveMessage(message,id);
         });
     }
 }
