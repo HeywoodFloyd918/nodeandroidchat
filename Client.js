@@ -11,6 +11,9 @@ class Client{
         this.websocket.on("message",(message)=>{
             this.websocketserver.handleMessage(message,this.id);
         })
+        this.websocket.on("close",()=>{
+            this.websocketserver.removeClient(this)
+        })
     }
     reciveMessage(message,id){
         let what;

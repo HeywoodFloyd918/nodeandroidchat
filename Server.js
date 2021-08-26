@@ -10,6 +10,9 @@ class Server{
             // });
         });
     }
+    removeClient(client){
+        this.clients.splice(this.clients.indexOf(client),1);
+    }
     handleMessage(message,id){
         this.clients.forEach(element => {
             element.reciveMessage(message,id);
